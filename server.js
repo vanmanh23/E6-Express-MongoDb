@@ -13,7 +13,20 @@ const mongoose = require("mongoose");
             useFindAndModify: false,
         }
     ).then(() => console.log("Connected to MongoDB Atlas")).catch((error) => console.log(error));
+    // 
 
+    const Character = require('./models/character') 
+const ryu = new Character ({ 
+ name: 'Ryu', 
+ ultimate: 'Shinku Hadoken' 
+}) 
+ryu.save(function (error, document) { 
+ if (error) console.error(error) 
+ console.log(document) 
+}) 
+
+    // 
+       
 app.use(foodRouter);
 app.listen(3000, () => {
 console.log("Server is running...");
